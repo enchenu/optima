@@ -8,6 +8,12 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
+# Repository for collecting Locale data for Ruby on Rails I18n as well as other interesting, Rails related
+gem 'rails-i18n'
+# Flexible authentication solution for Rails with Warden.
+gem 'devise'
+# Translations for the devise gem
+gem 'devise-i18n'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -46,6 +52,8 @@ group :development do
   gem 'listen', '~> 3.0.5'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+  # Better error page for Rack apps
+  gem "better_errors"
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   namespace :panel do
+  	resources :users, except: [:show, :destroy]
+    get 'users/index'
     get 'dashboard/index'
   end
 
-  devise_for :users
+  devise_for :users, :skip => [:registration]
   
   root 'panel/dashboard#index'
 

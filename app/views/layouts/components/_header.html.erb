@@ -40,11 +40,6 @@
       <a href="#" data-toggle="dropdown" class="dropdown-toggle profilebox"><!-- <img src="img/profileimg.png" alt="img"> --><b>Hola <%= current_user.username %></b><span class="caret"></span></a>
         <ul class="dropdown-menu dropdown-menu-list dropdown-menu-right">
           <li>
-            <%= link_to edit_user_registration_path do %>
-              <i class="fa falist fa-user"></i> Perfil
-            <% end %>
-          </li>
-          <li>
             <%= link_to destroy_user_session_path, :method => :delete do %>
               <i class="fa falist fa-power-off"></i> Salir del sistema
             <% end %>
@@ -99,6 +94,7 @@
           <li><%#= link_to "Crear presentaciones del producto", panel_presentations_path %></li>
           <li><%#= link_to "Crear Marca comercial", panel_brands_path %></li>
           <li><%#= link_to "Crear Categorias", panel_categories_path %></li>
+          <li><%= link_to "Crear Usuarios", panel_users_index_path %></li>
         </ul>
       </li>
     </ul>

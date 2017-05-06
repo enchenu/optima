@@ -14,6 +14,11 @@ gem 'rails-i18n'
 gem 'devise'
 # Translations for the devise gem
 gem 'devise-i18n'
+# Generate Entity-Relationship Diagrams for Rails applications
+gem 'rails-erd'
+#
+gem 'rails-assets-bootstrap', source: 'https://rails-assets.org'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
@@ -54,6 +59,8 @@ group :development do
   gem 'spring'
   # Better error page for Rack apps
   gem "better_errors"
+  # Generate Entity-Relationship Diagrams for Rails applications
+  gem 'rails-erd'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 

@@ -1,0 +1,52 @@
+<div class="login-form">
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="top">
+      <!-- <img src="img/kode-icon.png" alt="icon" class="icon"> -->
+      <h1>OPTIMA</h1>
+      <h4>Panel Administrativo</h4>
+    </div>
+
+    <div class="form-area">
+
+      <% if flash[:alert] %>
+
+        <div class="notification">
+          <div class="kode-alert alert6">
+            <a href="#" class="closed">×</a>
+            <%= flash[:alert] %>
+          </div>
+        </div>
+
+      <% end %>
+
+      <div class="group">
+        <%= f.text_field :login, autofocus: true, class: "form-control", :placeholder => "Usuario" %>
+        <i class="fa fa-user"></i>
+      </div>
+
+      <div class="group">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control", :placeholder => "Contraseña" %>
+        <i class="fa fa-key"></i>
+      </div>
+      
+      <div class="checkbox checkbox-primary">
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me, "Recordar mis datos" %>
+        </div>
+      <% end -%>
+
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Ingresar al sistema", class: "btn btn-default btn-block" %>
+      </div>
+      <%= render "devise/shared/links" %>
+
+    </div>
+  <% end %>
+
+</div>

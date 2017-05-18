@@ -1,0 +1,65 @@
+<h1 class="page-header">Usuarios</h1>
+
+<% if @user.errors.any? %>
+  <div class="alert alert-danger alert-dismissable">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <%= action %>
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="col-lg-6">
+              <%= form_for([:panel, @user]) do |f| -%>
+              <div class="form-group">
+                  <%= f.label :username %>
+                  <%= f.text_field :username, class:"form-control", placeholder:"Nombre del usuario" %>
+              </div>
+
+              <div class="form-group">
+                  <%= f.label :nombre %>
+                  <%= f.text_field :name, class:"form-control", placeholder:"Nombre del usuario" %>
+              </div>
+
+              <div class="form-group">
+                  <%= f.label :email %>
+                  <%= f.text_field :email, class:"form-control", placeholder:"Email del usuario" %>
+              </div>
+              
+             <% if policy(@user).edit? %>
+                <div class="form-group">
+                    <%= f.label :role %>
+                    <%= f.collection_radio_buttons(:role, option_for_roles, :id, :description) do |b| %>
+                      <div class="radio_button">
+                        <%= b.label { b.radio_button + b.text} %>
+                      </div>
+                    <% end %>
+                </div>
+              <% end %>
+
+              <div class="form-group">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class:"form-control", placeholder:"Contraseña" -%>
+              </div>
+
+              <div class="form-group">
+                  <%= f.label :password_confirmation %>
+                  <%= f.password_field :password_confirmation, class:"form-control", placeholder:"Confirmación de la contraseña"%>
+              </div>
+
+
+                <button type="submit" class="btn btn-default">Guardar</button>
+              <% end %>
+          </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->

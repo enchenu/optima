@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   namespace :panel do
-  	resources :users, except: [:show, :destroy]
+  	resources :users, except: [:show]
     get 'users/index'
     get 'dashboard/index'
   end
